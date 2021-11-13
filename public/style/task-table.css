@@ -1,0 +1,158 @@
+.btn {
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tasks .line {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tasks .line #create {
+  margin: 0;
+  background-color: #aeb8c1;
+}
+
+.tasks .line #create:hover {
+  background-color: #aaafb3;
+}
+
+.tasks .line #create:active {
+  background-color: #919599;
+}
+
+.tasks .line form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  padding-left: 2px;
+  border: 1px solid #e3e3e3;
+}
+
+.tasks .line form #search {
+  width: 200px;
+  margin: 0;
+  border: 0;
+  outline: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.tasks .line form #search:focus {
+  width: 300px;
+}
+
+.tasks .line form button {
+  border: none;
+  background: none;
+}
+
+.tasks .table-container {
+  overflow: auto;
+}
+
+.tasks .table-container > div {
+  min-width: 750px;
+}
+
+.tasks .table-container > div table {
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 20px;
+  border-collapse: collapse;
+  overflow-x: scroll;
+}
+
+.tasks .table-container > div table tbody tr {
+  border-color: #e6e6f2;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.tasks .table-container > div table tbody tr th {
+  background-color: #f9f9ff;
+  text-align: left;
+  padding: 10px 15px;
+}
+
+.tasks .table-container > div table tbody tr td {
+  padding: 20px 15px;
+  overflow: hidden;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(2) {
+  width: 250px;
+  text-overflow: ellipsis;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#complete {
+  background-color: #47d191;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#complete:hover {
+  background-color: #3faf7b;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#complete:active {
+  background-color: #3b996d;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#view {
+  background-color: #0d6efd;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#view:hover {
+  background-color: #0b5ed7;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#view:active {
+  background-color: #0a58ca;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#delete {
+  background-color: #dc3545;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#delete:hover {
+  background-color: #bb2d3b;
+}
+
+.tasks .table-container > div table tbody tr td:nth-child(6) button#delete:active {
+  background-color: #b02a37;
+}
+
+.tasks .table-container > div table .twenty {
+  width: 20%;
+}
+
+.tasks .table-container > div table .fifteen {
+  width: 15%;
+}
+
+.tasks .table-container > div table .ten {
+  width: 10%;
+}
+
+.tasks .table-container > div table .thirdty {
+  width: 30%;
+}
+/*# sourceMappingURL=task-table.css.map */

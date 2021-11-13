@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+.container {
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	.side-bar {
+		flex: 0.15;
+	}
+	main {
+		flex: 0.85;
+		background-color: #efeff6;
+		& > * {
+			padding: 20px;
+			margin: 40px;
+			background-color: #fff;
+			border-radius: 3px;
+			box-shadow: 0 0 5px 0px #ddd;
+		}
+	}
+	@media screen and (max-width: 992px) {
+		.side-bar {
+			flex: 0;
+		}
+		main {
+			flex: 1;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		flex-direction: column;
+	}
+}

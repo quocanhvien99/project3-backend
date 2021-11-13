@@ -28,10 +28,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const userRoute = require('./Routes/user');
+const projectRoute = require('./Routes/project');
 
 app.use('/user', userRoute);
+app.use('/project', projectRoute);
 
 const protectedRoute = require('./Middleware/protectedRoute');
 app.get('/private', protectedRoute, (req, res) => res.send('Hello'));
+
+app.use(express.static('public'));
 
 app.listen(process.env.PORT || 3000, () => console.log('Server is running'));

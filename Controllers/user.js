@@ -7,9 +7,7 @@ exports.register = (req, res) => {
 	pgPool
 		.query(query, [name, email, password])
 		.then((resp) => res.status(201).json({ msg: 'Success' }))
-		.catch((err) => {
-			res.status(400).json(err.detail);
-		});
+		.catch((err) => res.status(400).json(err.detail));
 };
 
 exports.login = async (req, res) => {

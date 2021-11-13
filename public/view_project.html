@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>View</title>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./style/layout.css" />
+		<link rel="stylesheet" href="./style/side-bar.css" />
+		<link rel="stylesheet" href="./style/view_project.css" />
+		<link rel="stylesheet" href="./style/task-table.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<div class="open-nav">
+					<span class="material-icons-outlined"> menu </span>
+				</div>
+			</header>
+			<div class="side-bar">
+				<p class="back">
+					<span class="material-icons-outlined"> arrow_back </span>Back
+				</p>
+				<p class="menu">MENU</p>
+				<ul>
+					<li>
+						<a href="/project.html">
+							<span class="material-icons-outlined"> manage_accounts </span>
+							<span>Projects</span>
+							<span class="material-icons-outlined"> arrow_right </span>
+						</a>
+					</li>
+					<li>
+						<a href="/task.html">
+							<span class="material-icons-outlined">task</span>
+							<span>Tasks</span>
+							<span class="material-icons-outlined"> arrow_right </span>
+						</a>
+					</li>
+				</ul>
+				<div id="logout">
+					<span class="material-icons-outlined"> power_settings_new </span>
+					<span>Logout</span>
+					<span class="material-icons-outlined"> arrow_right </span>
+				</div>
+			</div>
+			<main>
+				<form>
+					<label for="title">Tiêu đề</label>
+					<br />
+					<input type="text" name="title" id="title" />
+					<br />
+					<label for="visile_all">Chế độ hiển thị nhiệm vụ</label>
+					<input type="checkbox" name="visible_all" id="visible_all" />
+					<br />
+					<div><button class="btn" id="update">Cập nhật</button></div>
+				</form>
+				<div class="tasks">
+					<h3>Danh sách nhiệm vụ trong dự án</h3>
+					<div class="line">
+						<button class="btn" id="create">Thêm</button>
+						<form>						
+							<input type="text" name="search" id="search" placeholder="Nhập vào từ khoá tìm kiếm"/>
+							<button>
+								<span class="material-icons-outlined"> search </span>
+							</button>
+						</form>
+					</div>
+					
+					<div class="table-container">
+						<div>
+							<table>
+								<colgroup>
+									<col class="fifteen"></col>
+									<col class="thirdty"></col>
+									<col class="fifteen"></col>
+									<col class="fifteen"></col>
+									<col class="fifteen"></col>
+									<col class="ten"></col>
+								</colgroup>
+								<tr>
+									<th>Người thực hiện</th>
+									<th>Thông tin</th>
+									<th>Trạng thái</th>
+									<th>Ngày bắt đầu</th>
+									<th>Ngày kết thúc</th>
+									<th>Hành động</th>
+								</tr>
+								<tr>
+									<td>Viên Quốc Anh</td>
+									<td>Làm chức năng đặt hàng và đơn hàng</td>
+									<td>Chưa hoàn thành</td>
+									<td>13/11/2021</td>
+									<td>15/12/2021</td>
+									<td>
+										<button class="btn" id="view">Xem</button>
+										<button class="btn" id="delete">Xoá</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Võ Trí Anh</td>
+									<td>Làm giỏ hàng</td>
+									<td>Chưa hoàn thành</td>
+									<td>13/11/2021</td>
+									<td>9/12/2022</td>
+									<td>
+										<button class="btn" id="view">Xem</button>
+										<button class="btn" id="delete">Xoá</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Lương Ngọc Đức</td>
+									<td>Làm quản lý sản phẩm</td>
+									<td>Chưa hoàn thành</td>
+									<td>15/11/2021</td>
+									<td>5/12/2022</td>
+									<td>
+										<button class="btn" id="view">Xem</button>
+										<button class="btn" id="delete">Xoá</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Bùi Ngọc Đạt</td>
+									<td>Làm quản lý tài khoản</td>
+									<td>Chưa hoàn thành</td>
+									<td>17/11/2021</td>
+									<td>9/12/2022</td>
+									<td>
+										<button class="btn" id="view">Xem</button>
+										<button class="btn" id="delete">Xoá</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</main>
+			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+			<script src="/js/view_project.js"></script>
+			<script src="/js/side-bar.js"></script>
+		</div>
+	</body>
+</html>

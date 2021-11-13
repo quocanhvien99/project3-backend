@@ -1,0 +1,145 @@
+header {
+	display: none;
+	padding: 10px 40px;
+	.open-nav {
+		cursor: pointer;
+	}
+}
+.side-bar {
+	background-color: #0e0c28;
+	padding: 20px 10px;
+	color: #7a80b4;
+	font-size: small;
+	display: flex;
+	flex-direction: column;
+	transition: all 1s;
+	p {
+		font-weight: bold;
+		padding: 0 15px;
+		&.back {
+			display: none;
+		}
+	}
+	ul {
+		list-style-type: none;
+		padding: 0;
+		flex: 1;
+		li {
+			border-radius: 3px;
+			a {
+				display: flex;
+				align-items: center;
+				text-decoration: none;
+				color: #7a80b4;
+				padding: 10px 15px;
+				cursor: pointer;
+				span:first-of-type {
+					margin-right: 10px;
+				}
+				span:last-of-type {
+					margin-left: auto;
+				}
+			}
+			&:hover,
+			&.selected {
+				background-color: #242849;
+			}
+		}
+	}
+	#logout {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		padding: 10px 15px;
+		border-radius: 3px;
+		span:first-of-type {
+			margin-right: 10px;
+		}
+		span:last-of-type {
+			margin-left: auto;
+		}
+		&:hover {
+			background-color: #242849;
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.side-bar {
+		p {
+			display: none;
+		}
+		ul {
+			li {
+				a {
+					span.material-icons-outlined {
+						margin: 0;
+					}
+					span:not(:first-of-type) {
+						display: none;
+					}
+				}
+			}
+		}
+		#logout {
+			span.material-icons-outlined {
+				margin: 0;
+			}
+			span:not(:first-of-type) {
+				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	header {
+		display: block;
+	}
+	.side-bar {
+		position: fixed;
+		left: -110%;
+		height: 98vh;
+		width: 100vw;
+		&.open {
+			left: 0;
+		}
+		p.menu {
+			display: none;
+		}
+		p.back {
+			display: block;
+			width: fit-content;
+			cursor: pointer;
+			span {
+				margin-right: 10px;
+			}
+		}
+		ul {
+			li {
+				a {
+					span.material-icons-outlined {
+						margin-right: 10px;
+					}
+					span:not(:first-of-type) {
+						display: inline-block;
+					}
+					span:last-of-type {
+						margin-left: auto;
+					}
+				}
+			}
+		}
+		#logout {
+			span.material-icons-outlined {
+				margin-right: 10px;
+			}
+			span:not(:first-of-type) {
+				display: inline-block;
+			}
+			span:last-of-type {
+				margin-left: auto;
+			}
+		}
+	}
+}

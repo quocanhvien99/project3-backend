@@ -1,0 +1,35 @@
+main {
+	form {
+		input {
+			margin: 10px 0;
+			&[type='text'] {
+				box-sizing: border-box;
+				width: 100%;
+				padding: 5px 10px;
+			}
+			&[type='checkbox'] {
+				margin-left: 5px;
+			}
+		}
+		div {
+			display: flex;
+			justify-content: center;
+			button {
+				border: none;
+				padding: 10px 20px;
+				margin: 10px 0;
+				border-radius: 3px;
+				color: #fff;
+				font-weight: bold;
+				cursor: pointer;
+				background-color: #198754;
+				&:hover {
+					background-color: #157347;
+				}
+				&:active {
+					background-color: #146c43;
+				}
+			}
+		}
+	}
+}

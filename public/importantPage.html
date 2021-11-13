@@ -1,0 +1,31 @@
+<html>
+	<head></head>
+	<body>
+		<div class="hello" style="font-size: xx-large; font-weight: bold"></div>
+		<script>
+			const app = async () => {
+				const hello = document.querySelector('.hello');
+				const isLoggedIn = localStorage.getItem('isLoggedIn');
+				if (isLoggedIn) {
+					// const res = await fetch('http://localhost:3000/api/user/info', {
+					//     headers: {
+					//         'auth-token': token
+					//     }
+					// });
+					// let resData;
+					// if (res.status === 200) {
+					//     resData = await res.json();
+					//     hello.innerHTML = `Xin chào ${resData.name}, email: ${resData.email}`
+					//     return;
+					// }
+					// resData = await res.text();
+					// hello.innerHTML = resData;
+					hello.innerHTML = 'Xin Chào';
+					return;
+				}
+				hello.innerHTML = 'Bạn chưa đăng nhập';
+			};
+			app();
+		</script>
+	</body>
+</html>

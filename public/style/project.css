@@ -1,0 +1,98 @@
+.container main > div {
+  padding: 20px 40px;
+}
+
+.container main #create {
+  border: none;
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #aeb8c1;
+}
+
+.container main #create:hover {
+  background-color: #aaafb3;
+}
+
+.container main #create:active {
+  background-color: #919599;
+}
+
+.container main table {
+  display: block;
+  table-layout: fixed;
+  margin-top: 20px;
+  border-collapse: collapse;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.container main table tbody tr {
+  border-color: #e6e6f2;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.container main table tbody tr th {
+  background-color: #f9f9ff;
+  text-align: left;
+  padding: 10px 15px;
+}
+
+.container main table tbody tr td {
+  padding: 20px 15px;
+}
+
+.container main table tbody tr td:nth-child(1) {
+  width: 10%;
+}
+
+.container main table tbody tr td:nth-child(2) {
+  width: 50%;
+}
+
+.container main table tbody tr td:nth-child(3) {
+  width: 30%;
+}
+
+.container main table tbody tr td:nth-child(4) {
+  width: 10%;
+}
+
+.container main table tbody tr td:nth-child(4) button {
+  border: none;
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container main table tbody tr td:nth-child(4) button#view {
+  background-color: #0d6efd;
+}
+
+.container main table tbody tr td:nth-child(4) button#view:hover {
+  background-color: #0b5ed7;
+}
+
+.container main table tbody tr td:nth-child(4) button#view:active {
+  background-color: #0a58ca;
+}
+
+.container main table tbody tr td:nth-child(4) button#delete {
+  background-color: #dc3545;
+}
+
+.container main table tbody tr td:nth-child(4) button#delete:hover {
+  background-color: #bb2d3b;
+}
+
+.container main table tbody tr td:nth-child(4) button#delete:active {
+  background-color: #b02a37;
+}
+/*# sourceMappingURL=project.css.map */
