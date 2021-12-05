@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>View Task</title>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./style/layout.css" />
+		<link rel="stylesheet" href="./style/side-bar.css" />
+		<link rel="stylesheet" href="./style/view_task.css" />
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="open-nav">
+                <span class="material-icons-outlined"> menu </span>
+            </div>
+        </header>
+        <div class="side-bar">
+            <p class="back">
+                <span class="material-icons-outlined"> arrow_back </span>Back
+            </p>
+            <p class="menu">MENU</p>
+            <ul>
+                <li>
+                    <a href="/project.html">
+                        <span class="material-icons-outlined"> manage_accounts </span>
+                        <span>Projects</span>
+                        <span class="material-icons-outlined"> arrow_right </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/task.html">
+                        <span class="material-icons-outlined">task</span>
+                        <span>Tasks</span>
+                        <span class="material-icons-outlined"> arrow_right </span>
+                    </a>
+                </li>
+            </ul>
+            <div id="logout">
+                <span class="material-icons-outlined"> power_settings_new </span>
+                <span>Logout</span>
+                <span class="material-icons-outlined"> arrow_right </span>
+            </div>
+        </div>
+        <main>
+            <div class="task-info"></div>          
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/js/view_task.js"></script>
+        <script src="/js/side-bar.js"></script>
+    </div>
+</body>
+</body>
+</html>

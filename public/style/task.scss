@@ -1,0 +1,101 @@
+$purple: purple;
+$red: red;
+$green: green;
+
+main {
+	.state,
+	.list {
+		background-color: transparent;
+		box-shadow: none;
+	}
+	.state {
+		display: flex;
+		flex-wrap: wrap;
+		> div {
+			display: flex;
+			margin: 0 40px 10px 0;
+			.color {
+				width: 50px;
+				height: 20px;
+				border-radius: 5px;
+				margin-right: 10px;
+			}
+			.purple {
+				background-color: $purple;
+			}
+			.red {
+				background-color: $red;
+			}
+			.green {
+				background-color: $green;
+			}
+		}
+	}
+	.list {
+		display: grid;
+		grid-template-columns: auto auto auto auto;
+		column-gap: 2vmin;
+		row-gap: 2vmin;
+		list-style: none;
+		.item {
+			background-color: #fff;
+			border-radius: 5px;
+			padding: 0 15px;
+			border-left: 5px solid;
+			cursor: pointer;
+			&.purple {
+				border-color: $purple;
+			}
+			&.red {
+				border-color: $red;
+			}
+			&.green {
+				border-color: $green;
+			}
+			&:hover {
+				opacity: 0.7;
+			}
+
+			span {
+				font-weight: bold;
+			}
+
+			&.loading {
+				display: flex;
+				min-height: 100px;
+				justify-content: center;
+				align-items: center;
+				border: none;
+				@keyframes loading {
+					from {
+						width: 0;
+						opacity: 1;
+					}
+					to {
+						width: 60px;
+						opacity: 0;
+					}
+				}
+				.circle {
+					aspect-ratio: 1/1;
+					width: 60px;
+					border-radius: 999px;
+					background: #ddd;
+					animation-name: loading;
+					animation-duration: 2s;
+					animation-iteration-count: infinite;
+				}
+			}
+		}
+		@media screen and (max-width: 992px) {
+			& {
+				grid-template-columns: auto auto auto;
+			}
+		}
+		@media screen and (max-width: 768px) {
+			& {
+				grid-template-columns: auto auto;
+			}
+		}
+	}
+}

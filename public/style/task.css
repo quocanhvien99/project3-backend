@@ -1,0 +1,143 @@
+main .state,
+main .list {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main .state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .state > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 40px 10px 0;
+}
+
+main .state > div .color {
+  width: 50px;
+  height: 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+main .state > div .purple {
+  background-color: purple;
+}
+
+main .state > div .red {
+  background-color: red;
+}
+
+main .state > div .green {
+  background-color: green;
+}
+
+main .list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
+  -webkit-column-gap: 2vmin;
+          column-gap: 2vmin;
+  row-gap: 2vmin;
+  list-style: none;
+}
+
+main .list .item {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0 15px;
+  border-left: 5px solid;
+  cursor: pointer;
+}
+
+main .list .item.purple {
+  border-color: purple;
+}
+
+main .list .item.red {
+  border-color: red;
+}
+
+main .list .item.green {
+  border-color: green;
+}
+
+main .list .item:hover {
+  opacity: 0.7;
+}
+
+main .list .item span {
+  font-weight: bold;
+}
+
+main .list .item.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+}
+
+@-webkit-keyframes loading {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 60px;
+    opacity: 0;
+  }
+}
+
+@keyframes loading {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 60px;
+    opacity: 0;
+  }
+}
+
+main .list .item.loading .circle {
+  aspect-ratio: 1/1;
+  width: 60px;
+  border-radius: 999px;
+  background: #ddd;
+  -webkit-animation-name: loading;
+          animation-name: loading;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@media screen and (max-width: 992px) {
+  main .list {
+    -ms-grid-columns: auto auto auto;
+        grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main .list {
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+  }
+}
+/*# sourceMappingURL=task.css.map */

@@ -13,13 +13,17 @@ exports.createProject = (req, res) => {
 exports.getListProject = (req, res) => {
 	const { limit, skip } = req.query;
 	const query =
-		'select * from "project" where "project".owner_id = $1 limit $2 offset $3';
+		'select * from "project" where "project".owner_id = $1 order by create_at DESC limit $2 offset $3';
 	pgPool
 		.query(query, [req.session.uid, limit, skip])
 		.then((resp) => {
-			pgPool.query('select count(*) from "project"').then((resp1) => {
-				res.json({ data: resp.rows, count: resp1.rows[0].count });
-			});
+			pgPool
+				.query('select count(*) from "project" where owner_id = $1', [
+					req.session.uid,
+				])
+				.then((resp1) => {
+					res.json({ data: resp.rows, count: resp1.rows[0].count });
+				});
 		})
 		.catch((err) => res.status(400).json(err.detail));
 };

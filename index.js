@@ -29,9 +29,11 @@ app.use(express.json());
 
 const userRoute = require('./Routes/user');
 const projectRoute = require('./Routes/project');
+const taskRoute = require('./Routes/task');
 
 app.use('/user', userRoute);
 app.use('/project', projectRoute);
+app.use('/task', taskRoute);
 
 const protectedRoute = require('./Middleware/protectedRoute');
 app.get('/private', protectedRoute, (req, res) => res.send('Hello'));

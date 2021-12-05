@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="./style/side-bar.css" />
 		<link rel="stylesheet" href="./style/view_project.css" />
 		<link rel="stylesheet" href="./style/task-table.css">
+		<link rel="stylesheet" href="./style/pagination.css">
 	</head>
 	<body>
 		<div class="container">
@@ -70,6 +71,26 @@
 							</button>
 						</form>
 					</div>
+					<form id="add-task" method="post">
+						<label for="email">Người thực hiện</label>
+						<input type="email" name="email" id="email" placeholder="Email" required>
+						<label for="heading">Tiêu đề</label>
+						<input type="text" name="heading" id="heading" placeholder="Heading" required>
+						<div class="line">
+							<div>
+								<label for="start">Bắt đầu</label>
+								<input type="datetime-local" name="start_time" id="start" required>
+							</div>
+							<div>
+								<label for="end">Kết thúc</label>
+								<input type="datetime-local" name="end_time" id="end" required>
+							</div>
+						</div>
+						<br>
+						<label for="description">Mô tả</label><br>
+						<textarea name="description" id="description" rows="5">Mô tả về nhiệm vụ cần thực hiện...</textarea>
+						<div><button class="btn" id="confirm">Xác nhận</button></div>
+					</form>
 					
 					<div class="table-container">
 						<div>
@@ -82,59 +103,9 @@
 									<col class="fifteen"></col>
 									<col class="ten"></col>
 								</colgroup>
-								<tr>
-									<th>Người thực hiện</th>
-									<th>Thông tin</th>
-									<th>Trạng thái</th>
-									<th>Ngày bắt đầu</th>
-									<th>Ngày kết thúc</th>
-									<th>Hành động</th>
-								</tr>
-								<tr>
-									<td>Viên Quốc Anh</td>
-									<td>Làm chức năng đặt hàng và đơn hàng</td>
-									<td>Chưa hoàn thành</td>
-									<td>13/11/2021</td>
-									<td>15/12/2021</td>
-									<td>
-										<button class="btn" id="view">Xem</button>
-										<button class="btn" id="delete">Xoá</button>
-									</td>
-								</tr>
-								<tr>
-									<td>Võ Trí Anh</td>
-									<td>Làm giỏ hàng</td>
-									<td>Chưa hoàn thành</td>
-									<td>13/11/2021</td>
-									<td>9/12/2022</td>
-									<td>
-										<button class="btn" id="view">Xem</button>
-										<button class="btn" id="delete">Xoá</button>
-									</td>
-								</tr>
-								<tr>
-									<td>Lương Ngọc Đức</td>
-									<td>Làm quản lý sản phẩm</td>
-									<td>Chưa hoàn thành</td>
-									<td>15/11/2021</td>
-									<td>5/12/2022</td>
-									<td>
-										<button class="btn" id="view">Xem</button>
-										<button class="btn" id="delete">Xoá</button>
-									</td>
-								</tr>
-								<tr>
-									<td>Bùi Ngọc Đạt</td>
-									<td>Làm quản lý tài khoản</td>
-									<td>Chưa hoàn thành</td>
-									<td>17/11/2021</td>
-									<td>9/12/2022</td>
-									<td>
-										<button class="btn" id="view">Xem</button>
-										<button class="btn" id="delete">Xoá</button>
-									</td>
-								</tr>
+								
 							</table>
+							<ul class="pagination"></ul>
 						</div>
 					</div>
 				</div>
