@@ -27,6 +27,10 @@ app.use(
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use((req, res, next) => {
+	res.locals.redisClient = redisClient;
+	next();
+});
 
 const userRoute = require('./Routes/user');
 const projectRoute = require('./Routes/project');

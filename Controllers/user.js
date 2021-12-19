@@ -1,4 +1,5 @@
 const pgPool = require('../Utils/pgPool');
+const sendMail = require('../Utils/sendMail');
 
 exports.register = (req, res) => {
 	const { email, password, name } = req.body;
@@ -28,4 +29,34 @@ exports.login = async (req, res) => {
 exports.logout = async (req, res) => {
 	req.session.destroy();
 	res.json({ msg: 'Ok' });
+};
+
+exports.forgetPassword = async (req, res) => {
+	const { email } = req.body;
+	let activationCode = Math.round(Math.random() * 9999);
+	activationCode = activationCode.toString();
+	let zeros = [];
+	for (let i = 0; i < 4 - activationCode.length; i++) zeros.push('0');
+	zeros = zeros.join('');
+	activationCode = zeros + activationCode;
+	res.locals.redisClient.HSET('forgetCode', email, activationCode);
+	sendMail.forgetCode(email, activationCode);
+	res.json({ msg: 'Ok' });
+};
+
+exports.resetPassword = async (req, res) => {
+	const { email, code, password } = req.body;
+
+	const exactCode = res.locals.redisClient.HGET('forgetCode', email);
+	if (!exactCode == code) {
+		res.status(400).json({ msg: 'Code is wrong' });
+	}
+
+	const query = 'update "user" set password=$1 where email=$2';
+	pgPool
+		.query(query, [password, email])
+		.then((resp) => {
+			res.json({ msg: 'Password changed' });
+		})
+		.catch((err) => res.status(400).json({ error: err }));
 };

@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style/login.css" />
+		<link rel="stylesheet" href="./style/forget.css" />
+	</head>
+	<body>
+		<div class="login-form">
+			<h2>Quên mật khẩu</h2>
+			<form class="stage1">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" required />
+				<button id="sendcode">Gửi mã xác nhận</button>
+			</form>
+			<form class="stage2 hide">
+				<div class="alert"></div>
+				<label for="code">Mã xác nhận</label>
+				<input type="code" name="code" id="code" required />
+				<label for="password">Mật khẩu</label>
+				<input type="password" name="password" id="password" required />
+				<label for="repassword">Xác nhận mật khẩu</label>
+				<input type="password" name="repassword" id="repassword" required />
+				<button id="resetpass">Đổi mật khẩu</button>
+			</form>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="/js/forget.js"></script>
+	</body>
+</html>

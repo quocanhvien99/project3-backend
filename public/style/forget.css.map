@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACN,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,GAAG;EAClB,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,IAAI;EACjB,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,MAAM;EACf,MAAM,EAAE,OAAO;CACf;;AACD,AAAA,KAAK,CAAC;EACL,OAAO,EAAE,eAAe;CACxB",
+    "sources": [
+        "forget.scss"
+    ],
+    "names": [],
+    "file": "forget.css"
+}
