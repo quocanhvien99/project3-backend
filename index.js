@@ -3,6 +3,7 @@ const session = require('express-session');
 const cors = require('cors');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
+const cron = require('./cron');
 require('dotenv').config();
 
 const RedisStore = connectRedis(session);
@@ -41,3 +42,6 @@ app.get('/private', protectedRoute, (req, res) => res.send('Hello'));
 app.use(express.static('public'));
 
 app.listen(process.env.PORT || 3000, () => console.log('Server is running'));
+
+//run cronjob
+cron();
