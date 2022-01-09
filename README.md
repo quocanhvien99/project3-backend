@@ -9,6 +9,7 @@ Sử dụng:
 
 Các biến môi trường:
 
+- PORT=
 - SESSION_SECRET=
 - REDIS_HOST=
 - PGUSER=
@@ -20,6 +21,6 @@ Các biến môi trường:
 
 ---
 
-Để chạy dùng lệnh:
+Chạy chương trình sử dụng lệnh:
 
 > npm start
