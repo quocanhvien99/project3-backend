@@ -128,7 +128,8 @@ exports.getListTask = (req, res) => {
 
 exports.viewTask = (req, res) => {
 	const query =
-		'select T.id as id, user_id, heading, description, start_time, end_time, completed from "task" T, "project" P where (user_id = $1 or owner_id = $1 or visible_all=$2) and T.id=$3';
+		'select T.id as id, user_id, heading, description, start_time, end_time, completed, visible_all, P.id as pid, P.title from "task" T, "project" P where (user_id = $1 or owner_id = $1 or visible_all=$2) and T.id=$3 and T.project_id=P.id';
+
 	pgPool
 		.query(query, [req.session.uid, true, req.params.id])
 		.then((resp) => {

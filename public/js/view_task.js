@@ -43,6 +43,11 @@ axios({
 						? `<button onClick="complete(${data.id})">Hoàn thành</button>`
 						: ''
 				}
+		${
+			data.visible_all
+				? `<a href="/view_project.html?id=${data.pid}">Xem dự án</a>`
+				: ''
+		}
     </div>  
     `;
 });

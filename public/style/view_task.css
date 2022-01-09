@@ -6,14 +6,20 @@
   font-weight: bold;
 }
 
-.task-info button {
+.task-info button,
+.task-info a {
   border: none;
   padding: 10px 20px;
   margin: 10px 0;
   border-radius: 3px;
   color: #fff;
   font-weight: bold;
+  font-size: small;
+  text-decoration: none;
   cursor: pointer;
+}
+
+.task-info button {
   background-color: #00d1b2;
 }
 
@@ -23,5 +29,18 @@
 
 .task-info button:active {
   background-color: #00b89c;
+}
+
+.task-info a {
+  margin-left: 10px;
+  background-color: #485fc7;
+}
+
+.task-info a:hover {
+  background-color: #3e56c4;
+}
+
+.task-info a:active {
+  background-color: #3a51bb;
 }
 /*# sourceMappingURL=view_task.css.map */
