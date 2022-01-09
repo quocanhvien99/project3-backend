@@ -90,15 +90,31 @@ exports.getListTask = (req, res) => {
 			});
 	} else {
 		//get những task của bản thân
-		const query =
-			'select heading, start_time, end_time, completed, P.title as pname, T.id from "task" T, "project" P where T.project_id=P.id and user_id = $1 order by end_time ASC limit $2 offset $3';
+		const query = `select heading, start_time, end_time, completed, P.title as pname, T.id from "task" T, "project" P where T.project_id=P.id and user_id = $1 ${
+			search
+				? "and (heading like '%" +
+				  search +
+				  "%' or description like '%" +
+				  search +
+				  "%') "
+				: ''
+		}order by ${sortcol} ${sortby} limit $2 offset $3`;
 		pgPool
 			.query(query, [req.session.uid, limit, skip])
 			.then((resp) => {
 				pgPool
-					.query('select count(*) from "task" where user_id = $1', [
-						req.session.uid,
-					])
+					.query(
+						`select count(*) from "task" where user_id = $1${
+							search
+								? " and (heading like '%" +
+								  search +
+								  "%' or description like '%" +
+								  search +
+								  "%')"
+								: ''
+						}`,
+						[req.session.uid]
+					)
 					.then((resp1) => {
 						return res.json({ data: resp.rows, count: resp1.rows[0].count });
 					});

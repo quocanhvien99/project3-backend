@@ -13,6 +13,7 @@
 		height: min-content;
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap-reverse;
 		#create {
 			margin: 0;
 			background-color: #aeb8c1;

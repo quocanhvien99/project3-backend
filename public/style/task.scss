@@ -31,6 +31,44 @@ main {
 			}
 		}
 	}
+	.filter {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin: 0 60px;
+		label {
+			font-size: small;
+			font-weight: bold;
+		}
+		select {
+			padding: 5px 10px;
+			border: 1px solid #e3e3e3;
+			color: #555;
+		}
+		form {
+			display: flex;
+			height: fit-content;
+			align-items: center;
+			border-radius: 3px;
+			padding-left: 2px;
+			border: 1px solid #e3e3e3;
+			#search {
+				width: 200px;
+				margin: 0;
+				border: 0;
+				outline: none;
+				transition: all 1s;
+				&:focus {
+					width: 300px;
+				}
+			}
+			button {
+				border: none;
+				background: none;
+			}
+		}
+	}
 	.list {
 		display: grid;
 		grid-template-columns: auto auto auto auto;

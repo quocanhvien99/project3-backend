@@ -62,6 +62,30 @@
 						Đã hoàn thành
 					</div>
 				</div>
+				<div class="filter">
+					<div class="sort">
+						<label for="sortcol">Order by: </label>
+						<select name="sortcol" id="sortcol">
+							<option value="start_time" selected>Start Time</option>
+							<option value="end_time">End Time</option>
+						</select>
+						<select name="sortby" id="sortby">
+							<option value="ASC" selected>Ascending</option>
+							<option value="DESC">Descending</option>
+						</select>
+					</div>
+					<form id="search">
+						<input
+							type="text"
+							name="search"
+							id="search"
+							placeholder="Nhập vào từ khoá tìm kiếm"
+						/>
+						<button>
+							<span class="material-icons-outlined"> search </span>
+						</button>
+					</form>
+				</div>
 				<ul class="list">
 					<li class="item loading">
 						<div class="circle"></div>

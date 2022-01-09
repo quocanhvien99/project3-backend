@@ -11,6 +11,12 @@ if (!login || login.exp < Date.now()) {
 	);
 }
 
+let query = window.location.search;
+query = new URLSearchParams(query);
+let search = query.get('search');
+let sortcol = query.get('sortcol');
+let sortby = query.get('sortby');
+
 let limit = 12;
 let skip = 0;
 let totalTask;
@@ -29,7 +35,9 @@ function loadTask(firstRun = false) {
 		method: 'get',
 		url: `http://localhost:3000/task?limit=${
 			firstRun ? 28 : limit
-		}&skip=${skip}`,
+		}&skip=${skip}${search ? '&search=' + search : ''}${
+			sortcol ? '&sortcol=' + sortcol : ''
+		}${sortby ? '&sortby=' + sortby : ''}`,
 		withCredentials: true,
 	}).then((res) => {
 		console.log(res.data);
@@ -84,3 +92,44 @@ function view(tid) {
 
 //chạy lần đầu
 loadTask(true);
+
+//xử lý search
+const searchForm = document.querySelector('#search');
+searchForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	let data = new FormData(searchForm);
+	window.location.href =
+		'http://' +
+		window.location.host +
+		window.location.pathname +
+		'?search=' +
+		data.get('search');
+});
+
+//xử lý filter
+const sortCol = document.querySelector('.sort #sortcol');
+for (const x of sortCol.options) {
+	if (x.value == sortcol) x.selected = true;
+}
+sortCol.addEventListener('change', () => {
+	window.location.href =
+		'http://' +
+		window.location.host +
+		window.location.pathname +
+		`${'?sortcol=' + sortCol.value}
+		${search ? '&search=' + search : ''}
+		${sortby ? '&sortby=' + sortby : ''}`;
+});
+const sortBy = document.querySelector('.sort #sortby');
+for (const x of sortBy.options) {
+	if (x.value == sortby) x.selected = true;
+}
+sortBy.addEventListener('change', () => {
+	window.location.href =
+		'http://' +
+		window.location.host +
+		window.location.pathname +
+		`${'?sortby=' + sortBy.value}
+		${search ? '&search=' + search : ''}
+		${sortcol ? '&sortcol=' + sortcol : ''}`;
+});
