@@ -63,4 +63,17 @@ main {
 			transition: all 1s;
 		}
 	}
+
+	.filter {
+		margin-top: 20px;
+		label {
+			font-size: small;
+			font-weight: bold;
+		}
+		select {
+			padding: 5px 10px;
+			border: 1px solid #e3e3e3;
+			color: #555;
+		}
+	}
 }

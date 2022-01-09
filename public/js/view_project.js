@@ -78,6 +78,9 @@ addTaskForm.addEventListener('submit', (e) => {
 let totalPage;
 let curPage = query.get('page') || 1;
 let limit = 5;
+let search = query.get('search');
+let sortcol = query.get('sortcol');
+let sortby = query.get('sortby');
 
 let table = document.getElementsByTagName('table')[0];
 let pagination = document.getElementsByClassName('pagination')[0];
@@ -86,7 +89,11 @@ async function updateTable(curPage) {
 	const skip = (curPage - 1) * limit;
 	let res = await axios({
 		method: 'get',
-		url: `http://localhost:3000/task?pid=${projectId}&limit=${limit}&skip=${skip}`,
+		url: `http://localhost:3000/task?pid=${projectId}&limit=${limit}&skip=${skip}${
+			search ? '&search=' + search : ''
+		}${sortcol ? '&sortcol=' + sortcol : ''}${
+			sortby ? '&sortby=' + sortby : ''
+		}`,
 		withCredentials: true,
 	});
 	const isOwner = res.data.owner;
@@ -127,17 +134,25 @@ async function updatePagination(page) {
 		html.push(
 			`<li><a ${
 				i == page ? 'class="selected"' : ''
-			} href="${curUrl}?id=${projectId}&page=${i}">${i}</a></li>`
+			} href="${curUrl}?id=${projectId}&page=${i}${
+				search ? '&search=' + search : ''
+			}${sortby ? '&sortby=' + sortby : ''}${
+				sortcol ? '&sortcol=' + sortcol : ''
+			}">${i}</a></li>`
 		);
 	}
 	html = html.join('');
 	html =
-		`<li><a href="${curUrl}?id=${projectId}&page=${
-			page == 1 ? 1 : page - 1
+		`<li><a href="${curUrl}?id=${projectId}&page=${page == 1 ? 1 : page - 1}${
+			search ? '&search=' + search : ''
+		}${sortby ? '&sortby=' + sortby : ''}${
+			sortcol ? '&sortcol=' + sortcol : ''
 		}"><span class="material-icons-outlined"> navigate_before </span></a></li>` +
 		html +
 		`<li><a href="${curUrl}?id=${projectId}&page=${
 			page == totalPage ? page : parseInt(page) + 1
+		}${search ? '&search=' + search : ''}${sortby ? '&sortby=' + sortby : ''}${
+			sortcol ? '&sortcol=' + sortcol : ''
 		}"><span class="material-icons-outlined"> navigate_next </span></a></li>`;
 	pagination.innerHTML = html;
 }
@@ -165,3 +180,50 @@ function del(tid) {
 }
 
 updatePagination(curPage); //Chay khi load lan dau
+
+//xử lý search
+const searchForm = document.querySelector('#search');
+searchForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	let data = new FormData(searchForm);
+	window.location.href =
+		'http://' +
+		window.location.host +
+		window.location.pathname +
+		'?id=' +
+		projectId +
+		'&search=' +
+		data.get('search');
+});
+
+//xử lý filter
+const sortCol = document.querySelector('.filter #sortcol');
+for (const x of sortCol) {
+	if (x.value == sortcol) x.selected = true;
+}
+sortCol.addEventListener('change', () => {
+	window.location.href =
+		'http://' +
+		window.location.host +
+		window.location.pathname +
+		'?id=' +
+		projectId +
+		`${search ? '&search=' + search : ''}
+		${sortby ? '&sortby=' + sortby : ''}
+		${'&sortcol=' + sortCol.value}`;
+});
+const sortBy = document.querySelector('.filter #sortby');
+for (const x of sortBy) {
+	if (x.value == sortby) x.selected = true;
+}
+sortBy.addEventListener('change', () => {
+	window.location.href =
+		'http://' +
+		window.location.host +
+		window.location.pathname +
+		'?id=' +
+		projectId +
+		`${search ? '&search=' + search : ''}
+		${sortcol ? '&sortcol=' + sortcol : ''}
+		${'&sortby=' + sortBy.value}`;
+});

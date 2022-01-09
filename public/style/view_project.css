@@ -84,4 +84,19 @@ main form#add-task.show {
   -webkit-transition: all 1s;
   transition: all 1s;
 }
+
+main .filter {
+  margin-top: 20px;
+}
+
+main .filter label {
+  font-size: small;
+  font-weight: bold;
+}
+
+main .filter select {
+  padding: 5px 10px;
+  border: 1px solid #e3e3e3;
+  color: #555;
+}
 /*# sourceMappingURL=view_project.css.map */

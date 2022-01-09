@@ -35,18 +35,41 @@ exports.createTask = async (req, res) => {
 };
 
 exports.getListTask = (req, res) => {
-	const { limit, skip, pid } = req.query;
+	let { limit, skip, pid, search, sortcol, sortby } = req.query;
+	if (!sortcol) sortcol = 'start_time';
+	if (!sortby) sortby = 'ASC';
 
 	//get theo project
 	if (pid) {
-		query =
-			'select T.id as id, owner_id, name, heading, start_time, end_time, completed from "task" T, "project" P, "user" U where  project_id = $1 and T.project_id = P.id and T.user_id = U.id and (P.owner_id = $2 or P.visible_all = $3) order by P.create_at DESC limit $4 offset $5';
+		const query = `select T.id as id, owner_id, name, heading, start_time, end_time, completed from "task" T, "project" P, "user" U where  project_id = $1 and T.project_id = P.id and T.user_id = U.id and (P.owner_id = $2 or P.visible_all = $3) ${
+			search
+				? "and (heading like '%" +
+				  search +
+				  "%' or description like '%" +
+				  search +
+				  "%') "
+				: ''
+		}order by ${sortcol} ${sortby} limit $4 offset $5`;
 		pgPool
 			.query(query, [pid, req.session.uid, true, limit, skip])
 			.then((resp) => {
+				if (resp.rows.length == 0)
+					return res.json({
+						data: [],
+						count: 0,
+					});
+
 				pgPool
 					.query(
-						'select count(*) from "task" T, "project" P where project_id = $1 and T.project_id = P.id and (P.owner_id = $2 or P.visible_all = $3)',
+						`select count(*) from "task" T, "project" P where project_id = $1 and T.project_id = P.id and (P.owner_id = $2 or P.visible_all = $3)${
+							search
+								? " and (heading like '%" +
+								  search +
+								  "%' or description like '%" +
+								  search +
+								  "%')"
+								: ''
+						}`,
 						[pid, req.session.uid, true]
 					)
 					.then((resp1) => {

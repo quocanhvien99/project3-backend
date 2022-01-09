@@ -64,7 +64,7 @@
 					<h3>Danh sách nhiệm vụ trong dự án</h3>
 					<div class="line">
 						<button class="btn" id="create">Thêm</button>
-						<form>						
+						<form id="search">						
 							<input type="text" name="search" id="search" placeholder="Nhập vào từ khoá tìm kiếm"/>
 							<button>
 								<span class="material-icons-outlined"> search </span>
@@ -91,7 +91,17 @@
 						<textarea name="description" id="description" rows="5">Mô tả về nhiệm vụ cần thực hiện...</textarea>
 						<div><button class="btn" id="confirm">Xác nhận</button></div>
 					</form>
-					
+					<div class="filter">
+						<label for="sortcol">Order by: </label>
+						<select name="sortcol" id="sortcol">
+							<option value="start_time" selected>Start Time</option>
+							<option value="end_time">End Time</option>
+						</select>
+						<select name="sortby" id="sortby">
+							<option value="ASC" selected>Ascending</option>
+							<option value="DESC">Descending</option>
+						</select>
+					</div>
 					<div class="table-container">
 						<div>
 							<table>
