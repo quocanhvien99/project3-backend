@@ -48,9 +48,15 @@ exports.viewProject = (req, res) => {
 };
 
 exports.deleteProject = (req, res) => {
-	const query = 'delete from "project" where id=$1 and owner_id=$2';
+	let query = 'delete from "task" where project_id=$1';
 	pgPool
-		.query(query, [req.body.id, req.session.uid])
-		.then((resp) => res.json('Success'))
+		.query(query, [req.body.id])
+		.then(() => {
+			query = 'delete from "project" where id=$1 and owner_id=$2';
+			pgPool
+				.query(query, [req.body.id, req.session.uid])
+				.then(() => res.json('Success'))
+				.catch((err) => res.status(400).json(err.detail));
+		})
 		.catch((err) => res.status(400).json(err.detail));
 };
