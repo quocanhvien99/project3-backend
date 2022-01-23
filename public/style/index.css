@@ -88,4 +88,16 @@ main .desc .btn {
 main .hero-img img {
   width: 500px;
 }
+
+@media screen and (max-width: 900px) {
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .hero-img {
+    margin-top: 30px;
+  }
+}
 /*# sourceMappingURL=index.css.map */

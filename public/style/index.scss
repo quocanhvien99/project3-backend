@@ -62,4 +62,10 @@ main {
 			width: 500px;
 		}
 	}
+	@media screen and (max-width: 900px) {
+		flex-direction: column;
+		.hero-img {
+			margin-top: 30px;
+		}
+	}
 }
