@@ -4,75 +4,33 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Quản lý project</title>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="./style/project.css" />
-		<link rel="stylesheet" href="./style/layout.css" />
-		<link rel="stylesheet" href="./style/side-bar.css" />
-		<link rel="stylesheet" href="./style/pagination.css" />
-		<link rel="stylesheet" href="./style/popup-form.css" />
+		<title>Hello</title>
+		<link rel="stylesheet" href="./style/index.css" />
 	</head>
 	<body>
-		<div class="container">
-			<header>
-				<div class="open-nav">
-					<span class="material-icons-outlined"> menu </span>
-				</div>
-			</header>
-			<div class="side-bar">
-				<p class="back">
-					<span class="material-icons-outlined"> arrow_back </span>
-				</p>
-				<p class="menu">MENU</p>
-				<ul>
-					<li>
-						<a href="/project.html">
-							<span class="material-icons-outlined"> manage_accounts </span>
-							<span>Projects</span>
-							<span class="material-icons-outlined"> arrow_right </span>
-						</a>
-					</li>
-					<li>
-						<a href="/task.html">
-							<span class="material-icons-outlined">task</span>
-							<span>Tasks</span>
-							<span class="material-icons-outlined"> arrow_right </span>
-						</a>
-					</li>
-				</ul>
-				<div id="logout">
-					<span class="material-icons-outlined"> power_settings_new </span>
-					<span>Logout</span>
-					<span class="material-icons-outlined"> arrow_right </span>
-				</div>
+		<header>
+			<div class="logo">
+				<img src="./img/logo.png" alt="logo" />
+				<span>Hello</span>
 			</div>
-			<main>
-				<div>
-					<button id="create">Tạo mới</button>
-					<table></table>
-					<ul class="pagination"></ul>
-				</div>
-			</main>
-		</div>
-		<div class="popup-form">
-			<form>
-				<span id="close" class="material-icons-outlined"> cancel </span>
-				<label for="title">Tiêu đề</label>
-				<br />
-				<input type="text" name="title" id="title" />
-				<br />
-				<label for="visile_all">Chế độ hiển thị nhiệm vụ</label>
-				<input type="checkbox" name="visible_all" id="visible_all" />
-				<br />
-				<div><button id="confirm">Xác nhận</button></div>
-			</form>
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<script src="/js/project.js"></script>
-		<script src="/js/popup-form.js"></script>
-		<script src="/js/side-bar.js"></script>
+			<div class="right">
+				<a href="./login.html">Đăng nhập</a>
+				<a class="btn" href="./register.html">Đăng ký</a>
+			</div>
+		</header>
+		<main>
+			<div class="desc">
+				<h1>Ứng dụng giúp các nhóm phát triển công việc về phía trước.</h1>
+				<p>
+					Cộng tác, quản lý dự án và đạt đến đỉnh cao năng suất mới. Từ các tòa
+					nhà cao tầng đến văn phòng tại nhà, cách nhóm của bạn làm việc là duy
+					nhất—hoàn thành tất cả với Hello.
+				</p>
+				<a class="btn" href="./register.html">Sử dụng miễn phí ngay!</a>
+			</div>
+			<div class="hero-img">
+				<img src="./img//hero.png" alt="hero" />
+			</div>
+		</main>
 	</body>
 </html>

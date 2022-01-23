@@ -23,6 +23,12 @@ axios({
 	url: `http://localhost:3000/project/${projectId}`,
 	withCredentials: true,
 }).then((res) => {
+	if (res.data.length == 0) {
+		const projectInfo = document.getElementById('project-info');
+		const createBtn = document.getElementById('create');
+		createBtn.remove();
+		return projectInfo.remove();
+	}
 	const data = res.data[0];
 	title.value = data.title;
 	visible.checked = data.visible_all;
@@ -71,7 +77,10 @@ addTaskForm.addEventListener('submit', (e) => {
 			'Content-Type': 'application/json',
 		},
 		withCredentials: true,
-	}).then((res) => window.alert(res.data));
+	}).then((res) => {
+		window.alert(res.data.msg);
+		window.location.reload();
+	});
 });
 
 //table và pagination
@@ -161,7 +170,7 @@ function view(tid) {
 	window.location.href = '/view_task.html?id=' + tid;
 }
 function del(tid) {
-	let confirm = window.confirm('Xác nhận xoá project?');
+	let confirm = window.confirm('Xác nhận xoá nhiệm vụ?');
 	console.log(tid);
 	if (confirm) {
 		axios({

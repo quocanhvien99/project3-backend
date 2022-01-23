@@ -1,0 +1,91 @@
+body {
+  font-family: sans-serif;
+  background-color: #f2f0ff;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0065ff;
+}
+
+.btn {
+  color: #fff;
+  background-color: #0065ff;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: #0051cc;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+
+header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .logo img {
+  width: 30px;
+}
+
+header .logo span {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #606060;
+}
+
+header .right .btn {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+main .desc {
+  -webkit-box-flex: 0.8;
+      -ms-flex: 0.8;
+          flex: 0.8;
+}
+
+main .desc p {
+  font-size: larger;
+  color: #606060;
+  margin-bottom: 50px;
+}
+
+main .desc .btn {
+  padding: 10px 20px;
+}
+
+main .hero-img img {
+  width: 500px;
+}
+/*# sourceMappingURL=index.css.map */
