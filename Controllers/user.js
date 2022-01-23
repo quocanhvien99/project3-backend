@@ -47,16 +47,19 @@ exports.forgetPassword = async (req, res) => {
 exports.resetPassword = async (req, res) => {
 	const { email, code, password } = req.body;
 
-	const exactCode = res.locals.redisClient.HGET('forgetCode', email);
-	if (!exactCode == code) {
-		res.status(400).json({ msg: 'Code is wrong' });
-	}
+	res.locals.redisClient.HGET('forgetCode', email, (err, exactCode) => {
+		console.log(exactCode);
+		console.log(code);
+		if (exactCode != code) {
+			return res.status(400).json({ msg: 'Code is wrong' });
+		}
 
-	const query = 'update "user" set password=$1 where email=$2';
-	pgPool
-		.query(query, [password, email])
-		.then((resp) => {
-			res.json({ msg: 'Password changed' });
-		})
-		.catch((err) => res.status(400).json({ error: err }));
+		const query = 'update "user" set password=$1 where email=$2';
+		pgPool
+			.query(query, [password, email])
+			.then((resp) => {
+				res.json({ msg: 'Password changed' });
+			})
+			.catch((err) => res.status(400).json({ error: err }));
+	});
 };

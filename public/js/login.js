@@ -2,10 +2,10 @@ if (localStorage.getItem('isLogin')) {
 	location.replace('/project.html');
 }
 
-const submit = document.getElementById('submit-btn');
+const loginForm = document.getElementById('login');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-submit.addEventListener('click', async (event) => {
+loginForm.addEventListener('submit', async (event) => {
 	event.preventDefault();
 	const data = { email: email.value, password: password.value };
 	if (!data.email || !data.password) return;
@@ -19,27 +19,16 @@ submit.addEventListener('click', async (event) => {
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		withCredentials: true,
-	}).then((res) => {
-		if (res.status === 200) {
-			const loginExp = { exp: Date.now() + 30 * 60 * 1000 };
-			localStorage.setItem('isLogin', JSON.stringify(loginExp));
-			location.replace('/project.html');
-			return;
-		}
-	});
-
-	// const res = await fetch('http://localhost:3000/user/login', {
-	// 	method: 'POST', // *GET, POST, PUT, DELETE, etc.
-	// 	headers: {
-	// 		'Content-Type': 'application/json',
-	// 		// 'Content-Type': 'application/x-www-form-urlencoded',
-	// 	},
-	// 	body: JSON.stringify(data), // body data type must match "Content-Type" header
-	// });
-	// if (res.status === 200) {
-	// 	//location.replace('/project.html');
-	// 	return;
-	// }
-	// const resData = await res.text();
-	// alert(resData);
+	})
+		.then((res) => {
+			if (res.status === 200) {
+				const loginExp = { exp: Date.now() + 30 * 60 * 1000 };
+				localStorage.setItem('isLogin', JSON.stringify(loginExp));
+				location.replace('/project.html');
+				return;
+			}
+		})
+		.catch((err) => {
+			alert(err.response.data.msg);
+		});
 });

@@ -1,17 +1,15 @@
-const submit = document.getElementById('submit-btn');
+const loginForm = document.getElementById('login');
 const fullname = document.getElementById('name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const repassword = document.getElementById('confirm-password');
-submit.addEventListener('click', async (event) => {
+loginForm.addEventListener('submit', async (event) => {
 	event.preventDefault();
 	const data = {
 		email: email.value,
 		password: password.value,
 		name: fullname.value,
 	};
-	if (!data.email || !data.password || !data.name)
-		return alert('Chưa nhập đủ thông tin');
 	if (password.value !== repassword.value)
 		return alert('Mật khẩu xác nhận không trùng');
 

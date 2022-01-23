@@ -4,16 +4,17 @@
 		<link rel="stylesheet" href="./style/login.css" />
 	</head>
 	<body>
-		<div class="login-form">
+		<div class="login-form" id="login">
 			<h2>Đăng Nhập</h2>
 			<form>
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" />
+				<input type="email" name="email" id="email" required />
 				<label for="password">Password</label>
-				<input type="password" name="password" id="password" />
+				<input type="password" name="password" id="password" required />
 				<button id="submit-btn">Đăng Nhập</button>
 			</form>
 			<p>Chưa có tài khoản? <a href="./register.html">Đăng ký</a></p>
+			<p>Nếu bạn quên mật khẩu? <a href="./forget.html">Lấy lại mật khẩu</a></p>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

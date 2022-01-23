@@ -4,17 +4,17 @@
 		<link rel="stylesheet" href="./style/login.css" />
 	</head>
 	<body>
-		<div class="login-form">
+		<div class="login-form" id="login">
 			<h2>Đăng Ký</h2>
 			<form>
 				<label for="name">Họ Tên</label>
-				<input type="text" id="name" />
+				<input type="text" id="name" required />
 				<label for="email">Email</label>
 				<input type="email" id="email" />
 				<label for="password">Mật Khẩu</label>
-				<input type="password" id="password" />
+				<input type="password" id="password" required />
 				<label for="confirm-password">Xác nhận mật khẩu</label>
-				<input type="password" id="confirm-password" />
+				<input type="password" id="confirm-password" required />
 				<button id="submit-btn">Đăng Ký</button>
 			</form>
 			<p>Trở lại <a href="./login.html">Đăng nhập</a></p>
